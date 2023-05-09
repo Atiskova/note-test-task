@@ -33,4 +33,46 @@
   text-align: left;
   background-color: rgba(255, 255, 255, 0.2);
   border: none;
+  min-height: 50vh;
+}
+
+
+
+
+.control__list {
+  display: flex;
+  gap: 12px;
+}
+
+.control__button {
+padding: 5px;
+border-radius: 12px;
+background-color: rgb(189, 186, 189);
+transition: all 0.25s ease-in-out;
+border: 1px solid rgb(0, 0, 0);
+color: rgb(0, 0, 0);
+}
+
+.control__button:is(:hover, :focus) {
+background-color: rgb(164, 194, 218);
+color: rgb(2, 73, 153);
+border: 1px solid rgb(2, 73, 153);
+}
+
+.control__svg {
+  height: 20px;
+  width: 20px;
+  fill: currentColor;
+}
+
+@media screen and (min-width: 768px) {
+  .control__svg {
+      height: 24px;
+      width: 24px;
+      fill: currentColor;
+  }
+  
+  .control__button {
+      padding: 8px;   
+      }
 }
