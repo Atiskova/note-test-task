@@ -19,7 +19,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint-and-fix": "npx eslint src --ext .js,.jsx --fix"
+    "lint-and-fix": "npx eslint src --ext .js,.jsx --fix",
+    "lint:js": "eslint ."
   },
   "eslintConfig": {
     "extends": [
