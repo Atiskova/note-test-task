@@ -1,0 +1,82 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": ["airbnb", "plugin:prettier/recommended"],
+  "overrides": [],
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": ["react"],
+
+  "rules": {
+    "react/react-in-jsx-scope": 0,
+    "react/jsx-uses-react": 0,
+    "react/jsx-filename-extension": [
+      2,
+      {
+        "extensions": [".js", ".jsx"]
+      }
+    ],
+    "quotes": [2, "double"],
+    "linebreak-style": 0,
+    "no-console": "off",
+    "import/no-unresolved": [2, { "commonjs": true, "amd": true }],
+    "import/named": 2,
+    "import/namespace": 2,
+    "import/default": 2,
+    "import/export": 2,
+    "react/prop-types": "off",
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+    ],
+    "import/prefer-default-export": "off",
+    "jsx-a11y/anchor-is-valid": [
+      "error",
+      {
+        "components": ["Link"],
+        "specialLink": ["hrefLeft", "hrefRight"],
+        "aspects": ["invalidHref", "preferButton"]
+      }
+    ],
+    "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
+    "react/jsx-props-no-spreading": "off",
+    "react/jsx-no-useless-fragment": "off",
+    "react/function-component-definition": "off",
+    "implicit-arrow-linebreak": [0, "beside"],
+    "operator-linebreak": ["error", "after"],
+    "indent": [0, "tab"],
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ],
+    "object-curly-newline": [
+      0,
+      {
+        "ObjectExpression": "always",
+        "ObjectPattern": { "multiline": true },
+        "ImportDeclaration": { "multiline": true, "minProperties": 3 },
+        "ExportDeclaration": { "multiline": true, "minProperties": 3 }
+      }
+    ],
+    "import/no-extraneous-dependencies": [
+      0,
+      {
+        "devDependencies": false,
+        "optionalDependencies": false,
+        "peerDependencies": false
+      }
+    ]
+  }
+}

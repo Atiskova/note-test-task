@@ -1,6 +1,6 @@
 import { Buttons } from "../Buttons/Buttons";
 import { SearchBox } from "../SearchBox/SearchBox";
-import css from './Header.module.css'
+import css from "./Header.module.css";
 
 export const Header = () => {
   return (

@@ -1,17 +1,6 @@
 .app__container {
-  /* display: grid; 
-  grid-template-columns: 1.2fr 0.8fr 1fr; 
-  grid-template-rows: 0.2fr 1.8fr; 
-  gap: 0px 0px; 
-  grid-template-areas: 
-    "h h h"
-    "s w w";  */
-
-    
-    margin: 0 auto;
+  margin: 0 auto;
 }
-
-
 
 .main__container {
   display: grid;
@@ -25,29 +14,29 @@
 }
 
 @media screen and (min-width: 768px) {
-  .main__container{
-  max-width: 768px;
-  padding: 0 32px;
-}
+  .main__container {
+    max-width: 768px;
+    padding: 0 32px;
+  }
 }
 
 @media screen and (min-width: 1280px) {
-  .main__container{
-  max-width: 1280px;
-  padding: 0 40px;
-}
+  .main__container {
+    max-width: 1280px;
+    padding: 0 40px;
+  }
 }
 
 @media screen and (min-width: 1440px) {
-  .main__container{
-  max-width: 1440px;
-  padding: 0 120px;
-}
+  .main__container {
+    max-width: 1440px;
+    padding: 0 120px;
+  }
 }
 
 @media screen and (min-width: 1920px) {
-  .main__container{
-  max-width: 1920px;
-  padding: 0 240px;
-}
+  .main__container {
+    max-width: 1920px;
+    padding: 0 240px;
+  }
 }

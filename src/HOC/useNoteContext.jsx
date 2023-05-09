@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import axios from "axios";
-import { formatDate } from "../services/formatDate"; 
+import { formatDate } from "../services/formatDate";
 
 export const NotesContext = createContext();
 
@@ -11,7 +11,7 @@ const NotesContextProvider = ({ children }) => {
   const [description, setDescription] = useState("");
   const date = formatDate;
   const [searchValue, setSearchValue] = useState("");
-  const [openAddForm, setOpenAddForm] = useState(false) 
+  const [openAddForm, setOpenAddForm] = useState(false);
   const API_KEY = "dcKCkIWP9dJl0cW49ksmom";
   const BASE_URL = "https://quintadb.com/apps/dcISkVW7bdPioiWPRdHtDV/dtypes";
   const ENTITY_ID = "ddPc47WOzmCikwW7RcP8kL";
@@ -68,7 +68,6 @@ const NotesContextProvider = ({ children }) => {
       )
     );
     setSelectNote(null);
-
   };
 
   const searchedNote = data.filter(
@@ -84,8 +83,7 @@ const NotesContextProvider = ({ children }) => {
   const handleOpenNote = () => {
     setOpenAddForm(!openAddForm);
     setSelectNote(null);
-  }
-
+  };
 
   return (
     <NotesContext.Provider
@@ -105,7 +103,7 @@ const NotesContextProvider = ({ children }) => {
         searchedNote,
         handleOpenNote,
         setOpenAddForm,
-        openAddForm
+        openAddForm,
       }}
     >
       {children}
