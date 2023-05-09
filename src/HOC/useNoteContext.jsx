@@ -18,56 +18,72 @@ const NotesContextProvider = ({ children }) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const { data } = await axios.get(
-        `${BASE_URL}/entity/${ENTITY_ID}.json?&rest_api_key=${API_KEY}&per_page=199`
-      );
-      setData(data.records);
+      try {
+        const { data } = await axios.get(
+          `${BASE_URL}/entity/${ENTITY_ID}.json?&rest_api_key=${API_KEY}&per_page=199`
+        );
+        setData(data.records);
+      } catch (error) {
+        console.log(error);
+      }
     };
     fetchData();
   }, []);
 
   const deleteNote = async (id) => {
-    await axios.delete(`${BASE_URL}/${id}.json?rest_api_key=${API_KEY}`);
-    setData(data.filter((element) => element.id !== id));
-    setSelectNote(null);
+    try {
+      await axios.delete(`${BASE_URL}/${id}.json?rest_api_key=${API_KEY}`);
+      setData(data.filter((element) => element.id !== id));
+      setSelectNote(null);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const addNote = async (title, description, date) => {
-    const response = await axios({
-      url: `${BASE_URL}.json?rest_api_key=${API_KEY}`,
-      method: "POST",
-      data: {
-        values: {
-          aCsxlcI8ngBQaIWORcPSkz: title,
-          bmCc7cOd9gF47cLSkjWPGo: description,
-          boWRNdPwndliNcOexcNSkM: date,
+    try {
+      const response = await axios({
+        url: `${BASE_URL}.json?rest_api_key=${API_KEY}`,
+        method: "POST",
+        data: {
+          values: {
+            aCsxlcI8ngBQaIWORcPSkz: title,
+            bmCc7cOd9gF47cLSkjWPGo: description,
+            boWRNdPwndliNcOexcNSkM: date,
+          },
+          entity_id: `${ENTITY_ID}`,
         },
-        entity_id: `${ENTITY_ID}`,
-      },
-    });
-    const element = response.data.record;
-    setData([...data, element]);
-    setTitle("");
-    setDescription("");
-    setSelectNote(null);
+      });
+      const element = response.data.record;
+      setData([...data, element]);
+      setTitle("");
+      setDescription("");
+      setSelectNote(null);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const editNote = async (updateNote) => {
-    const response = await axios({
-      url: `${BASE_URL}/${updateNote.id}.json?rest_api_key=${API_KEY}`,
-      method: "PUT",
-      data: {
-        values: { ...updateNote.values },
-        entity_id: `${ENTITY_ID}`,
-      },
-    });
-    setSelectNote(response.data);
-    setData(
-      data.map((element) =>
-        updateNote.id === element.id ? updateNote : element
-      )
-    );
-    setSelectNote(null);
+    try {
+      const response = await axios({
+        url: `${BASE_URL}/${updateNote.id}.json?rest_api_key=${API_KEY}`,
+        method: "PUT",
+        data: {
+          values: { ...updateNote.values },
+          entity_id: `${ENTITY_ID}`,
+        },
+      });
+      setSelectNote(response.data);
+      setData(
+        data.map((element) =>
+          updateNote.id === element.id ? updateNote : element
+        )
+      );
+      setSelectNote(null);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const searchedNote = data.filter(
