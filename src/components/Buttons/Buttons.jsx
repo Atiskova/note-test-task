@@ -1,5 +1,7 @@
 import { useContext } from "react";
 import { NotesContext } from "../../HOC/useNoteContext";
+import {MdOutlineEditCalendar, MdFormatListBulletedAdd, MdOutlineDeleteForever} from "react-icons/md";
+import css from './Buttons.module.css';
 
 export const Buttons = () => {
   const { deleteNote, selectNote, setSelectNote,  addNote, editNote, title, description, date} =
@@ -15,10 +17,10 @@ export const Buttons = () => {
     }
 
   return (
-    <div>
-      <button type="submit" onClick={handleAddNote}>+</button>
-      <button type="submit" onClick={() => deleteNote(selectNote.id)}>X</button>
-      <button type="submit" onClick={handleEditNote}>Edit</button>
-    </div>
+    <ul className={css.control__list} >
+      <li><button type="submit" className={css.control__button} onClick={handleAddNote}><MdFormatListBulletedAdd className={css.control__svg}/></button></li>
+      <li><button type="submit" className={css.control__button} onClick={() => deleteNote(selectNote.id)}><MdOutlineDeleteForever  className={css.control__svg}/></button></li>
+      <li><button type="submit" className={css.control__button} onClick={handleEditNote}><MdOutlineEditCalendar  className={css.control__svg}/></button></li>
+    </ul>
   );
 };

@@ -4,6 +4,7 @@ import { Sidebar } from "./components/Sidebar/Sidebar";
 import { Buttons } from "./components/Buttons/Buttons";
 import { Workspace } from "./components/Workspace/Workspace";
 import { Header } from "./components/Header/Header";
+import css from './App.module.css'
 
 
 function App() {
@@ -11,10 +12,12 @@ function App() {
 
 
   return (
-      <div>
+      <div className={css.app__container}>
         <Header />
-        <Sidebar />
-        <Workspace />
+        <main className={css.main__container}>
+          <Sidebar />
+          <Workspace />
+        </main>
       </div>
   );
 }
